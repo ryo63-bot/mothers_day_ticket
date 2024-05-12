@@ -87,7 +87,7 @@
 
   <script>
     // 暗証番号の設定
-    const correctPassword = '8802';  // 正しい暗証番号を設定
+    const correctPassword = os.environ.get('PASSWORD');
 
     // 要素の取得
     const passwordContainer = document.getElementById('passwordContainer');
