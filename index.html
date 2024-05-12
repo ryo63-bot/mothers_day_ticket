@@ -85,34 +85,5 @@
     <img src="img/back_ticket.png" alt="チケット裏" class="back">
   </div>
 
-  <script>
-    // 暗証番号の設定
-    const correctPassword = "8802";
-
-    // 要素の取得
-    const passwordContainer = document.getElementById('passwordContainer');
-    const passwordInput = document.getElementById('passwordInput');
-    const submitButton = document.getElementById('submitButton');
-    const ticket = document.getElementById('ticket');
-
-    // 送信ボタンがクリックされたときの処理
-    submitButton.addEventListener('click', function() {
-      const enteredPassword = passwordInput.value;
-
-      if (enteredPassword === correctPassword) {
-        // 暗証番号が正しい場合、チケットを表示
-        passwordContainer.style.display = 'none';
-        ticket.style.display = 'block';
-      } else {
-        // 暗証番号が間違っている場合、アラートを表示
-        alert('暗証番号が間違っています。');
-      }
-    });
-
-    // チケットがクリックされたら 'flip' クラスを切り替えるイベントリスナーを追加
-    ticket.addEventListener('click', function() {
-      ticket.classList.toggle('flip');
-    });
-  </script>
 </body>
 </html>
