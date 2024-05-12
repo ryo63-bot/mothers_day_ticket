@@ -1,89 +1,75 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Disney ticket for Yuri</title>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh; /* ビューポートの高さに合わせる */
-      margin: 0; /* デフォルトのマージンを取り除く */
-    }
-    .ticket {
-      /* デフォルトのスタイルを設定 */
-      max-width: 100%;
-      height: auto;
-      transition: transform 0.5s;
-      transform-style: preserve-3d;
-    }
-    /* スマホ画面での表示を最適化 */
-    @media (min-width: 320px) {
-      .ticket {
-        width: 90%; /* ビューポートの幅に応じて調整 */
-        height: auto; /* 高さは自動で調整 */
-      }
-    }
-    /* タブレットやデスクトップでの表示を最適化 */
-    @media (min-width: 768px) {
-      .ticket {
-        width: 600px; /* タブレットやデスクトップでは固定サイズ */
-        height: 300px;
-      }
-    }
-    .ticket img {
-      width: 100%;
-      height: auto;
-      backface-visibility: hidden; /* 裏側を隠す */
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-    .ticket.flip {
-      transform: rotateY(180deg); /* 180度回転 */
-    }
-    .front {
-      z-index: 2;
-    }
-    .back {
-      transform: rotateY(180deg); /* 裏面を180度反転させておく */
-      z-index: 1;
-    }
-    .password-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
-    .password-container input {
-      padding: 10px;
-      font-size: 18px;
-    }
-    .password-container button {
-      padding: 10px 20px;
-      font-size: 18px;
-      margin-left: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mothers day ticket</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* ビューポートの高さに合わせる */
+            margin: 0; /* デフォルトのマージンを取り除く */
+        }
+
+        .ticket { /* デフォルトのスタイルを設定 */
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.5s;
+            transform-style: preserve-3d;
+        }
+
+        /* スマホ画面での表示を最適化 */
+        @media (min-width: 320px) {
+            .ticket {
+                width: 90%; /* ビューポートの幅に応じて調整 */
+                height: auto; /* 高さは自動で調整 */
+            }
+        }
+
+        /* タブレットやデスクトップでの表示を最適化 */
+        @media (min-width: 768px) {
+            .ticket {
+                width: 600px; /* タブレットやデスクトップでは固定サイズ */
+                height: 300px;
+            }
+        }
+
+        .ticket img {
+            width: 100%;
+            height: auto;
+            backface-visibility: hidden; /* 裏側を隠す */
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .ticket.flip {
+            transform: rotateY(180deg); /* 180度回転 */
+        }
+
+        .front {
+            z-index: 2;
+        }
+
+        .back {
+            transform: rotateY(180deg); /* 裏面を180度反転させておく */
+            z-index: 1;
+        }
+    </style>
 </head>
 <body>
-  <div class="password-container" id="passwordContainer">
-    <input type="password" id="passwordInput" placeholder="暗証番号を入力">
-    <button id="submitButton">送信</button>
-  </div>
+    <div class="ticket" id="ticket" onclick="flipTicket()">
+        <img src="img/front_ticket.png" alt="チケット表" class="front">
+        <img src="img/back_ticket.png" alt="チケット裏" class="back">
+    </div>
 
-  <div class="ticket" id="ticket" style="display: none;">
-    <img src="img/front_ticket.png" alt="チケット表" class="front">
-    <img src="img/back_ticket.png" alt="チケット裏" class="back">
-  </div>
-
+    <script>
+        function flipTicket() {
+            const ticket = document.getElementById('ticket');
+            ticket.classList.toggle('flip');
+        }
+    </script>
 </body>
 </html>
